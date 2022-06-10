@@ -1,0 +1,36 @@
+{
+    "usuarios":[
+        {
+            "id":1,
+            "apellido_paterno":"Moreira",
+            "apellido_materno":"Quirós",
+            "nombre":"Cristopher",
+            "username":"Morqui",
+            "password":"827ccb0eea8a706c4c34a16891f84e7b"
+        },
+        {
+            "id":2,
+            "apellido_paterno":"Cruz",
+            "apellido_materno":"Vargas",
+            "nombre":"Eduardo",
+            "username":"joseibon",
+            "password":"827ccb0eea8a706c4c34a16891f84e7b"
+        },
+        {
+            "id":2,
+            "apellido_paterno":"Cruz",
+            "apellido_materno":"Vargas",
+            "nombre":"Eduardo",
+            "username":"joseibon",
+            "password":"827ccb0eea8a706c4c34a16891f84e7b"
+        },
+        {
+            "id":2,
+            "apellido_paterno":"Cruz",
+            "apellido_materno":"Vargas",
+            "nombre":"Eduardo",
+            "username":"joseibon",
+            "password":"827ccb0eea8a706c4c34a16891f84e7b"
+        }
+    ]
+}
