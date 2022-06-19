@@ -20,6 +20,13 @@ class Menu extends Component {
         }
     }
 
+    downloadFile = async () => {
+        window.location.href = "./download";
+    }
+    uploadFile = async () => {
+        window.location.href = "./upload";
+    }
+
     render() {
         console.log('id: '+ cookies.get('id'));
         console.log('apellido_paterno: '+cookies.get('apellido_paterno'));
@@ -32,8 +39,9 @@ class Menu extends Component {
 
                 <br />
                 <button onClick={()=>this.cerrarSesion()}>Cerrar Sesión</button>
-                <button onClick={()=>this.cerrarSesion()}>Subir archivo</button>
-                <button onClick={()=>this.cerrarSesion()}>Descargar archivo</button>
+                <button onClick={()=>this.uploadFile()}>Subir archivo</button>
+                <button onClick={()=>this.downloadFile()}>Descargar archivo</button>
+                
             </div>
         );
     }
