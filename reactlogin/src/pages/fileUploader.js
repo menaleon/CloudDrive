@@ -9,8 +9,29 @@ class fileUploader extends Component {
     state = {
         form: {
             username: ''
-        
         }
+    }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+          imageURL: '',
+        };
+        this.handleUploadFile = this.handleUploadFile.bind(this);
+    }
+    
+    handleUploadFile(ev) {
+        //ev.preventDefault();
+        const data = new FormData();
+        data.append('file', this.uploadInput.files[0]);
+        fetch('http://localhost:3002/api/file-upload', {
+            method: 'POST',
+            body: data,
+        }).then((response) => {
+            response.json().then((body) => {
+                this.setState({ imageURL: `http://localhost:3002/${body.file}` });
+            });
+        });
     }
 
     handleChange = async e => {
@@ -28,13 +49,8 @@ class fileUploader extends Component {
             <div className="containerPrincipal">
                 <label>Nombre archivo: </label>
                         <br />
-                        <input
-                            type="text"
-                            className="form-control"
-                            name="username"
-                            onChange={this.handleChange}
-                        />                        
-                        <button className="btn btn-primary" onClick={() => this.upload()}>Subir archivo</button>
+                        <input ref={(ref) => { this.uploadInput = ref; }} type="file" className="form-control"/>
+                        <button className="btn btn-primary" onClick={() => this.handleUploadFile()}>Subir archivo</button>
             </div>
         );
     }
