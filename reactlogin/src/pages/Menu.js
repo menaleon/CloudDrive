@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../css/Menu.css';
 import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
@@ -26,11 +27,13 @@ class Menu extends Component {
         console.log('nombre: '+cookies.get('nombre'));
         console.log('username: '+cookies.get('username'));
         return (
-            <div>
+            <div className="containerPrincipal">
                 Menu Principal
 
                 <br />
                 <button onClick={()=>this.cerrarSesion()}>Cerrar Sesión</button>
+                <button onClick={()=>this.cerrarSesion()}>Subir archivo</button>
+                <button onClick={()=>this.cerrarSesion()}>Descargar archivo</button>
             </div>
         );
     }

@@ -8,7 +8,7 @@ import Cookies from 'universal-cookie'
 const baseURL = "http://localhost:3001/usuarios";
 const cookies = new Cookies();
 
-class Login extends Component {
+class Register extends Component {
     state = {
         form: {
             username: '',
@@ -23,34 +23,13 @@ class Login extends Component {
                 [e.target.name]: e.target.value
             }
         });
-        //console.log(this.state.form);
+        
     }
-
-    iniciarSesion = async () => {
-        await axios.get(baseURL, { params: { username: this.state.form.username, password: md5(this.state.form.password) } })
-            .then(response => {
-                return response.data;
-            })
-            .then(response => {
-                if (response.length > 0) {
-                    var respuesta = response[0];
-                    cookies.set('id', respuesta.id, { path: "/" });
-                    cookies.set('apellido_paterno', respuesta.apellido_paterno, { path: "/" });
-                    cookies.set('apellido_materno', respuesta.apellido_materno, { path: "/" });
-                    cookies.set('nombre', respuesta.nombre, { path: "/" });
-                    cookies.set('username', respuesta.username, { path: "/" });
-                    alert(`Bienvenido ${respuesta.nombre} ${respuesta.apellido_paterno}`);
-                    window.location.href = "./menu";
-                } else {
-                    alert('El usuario o contraseña son incorrectos')
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            })
+    guardar = async () => {
+        window.location.href = "./"; //Aqui iría la logica para guardar el nuevo usuario
     }
-    registrarse = async () => {
-        window.location.href = "./register";
+    volver = async () => {
+        window.location.href = "./";
     }
     componentDidMount() {
         if (cookies.get('username')) {
@@ -81,8 +60,8 @@ class Login extends Component {
                             onChange={this.handleChange}
                         />
                         <br />
-                        <button className="btn btn-primary" onClick={() => this.iniciarSesion()}>Iniciar Sesión</button>
-                        <button className="btn btn-primary" onClick={() => this.registrarse()}>Registrarse</button>
+                        <button className="btn btn-primary" onClick={() => this.guardar()}>Guardar</button>
+                        <button className="btn btn-primary" onClick={() => this.volver()}>Volver a inicio de sesión</button>
                     </div>
                 </div>
             </div>
@@ -90,4 +69,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default Register;
