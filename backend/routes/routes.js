@@ -71,11 +71,9 @@ router.delete("/users/:id", (req, res, next) => {
    });
 });
 
-
 //router.post('/file-upload', upload.single('path'), (req, res, next) => {
 router.post('/file-upload', (req, res, next) => {
     const newpath = __dirname + "/../public/";
-    console.log(newpath);
     const reqfile = req.files.file;
     const filename = reqfile.name;
     //const url = req.protocol + '://' + req.get('host')
@@ -109,6 +107,16 @@ router.get("/file-list", (req, res, next) => {
     File.find().then(data => {
         res.status(200).json({
             message: "File list retrieved successfully!",
+            files: data
+        });
+    });
+});
+
+router.get("/file/:id", (req, res, next) => {
+    id = req.params.id;
+    File.findOne({name: id}).then(data => {
+        res.status(200).json({
+            message: "File retrieved successfully!",
             files: data
         });
     });

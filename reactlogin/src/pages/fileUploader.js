@@ -6,22 +6,12 @@ import Cookies from 'universal-cookie'
 const cookies = new Cookies();
 
 class fileUploader extends Component {
-    state = {
-        form: {
-            username: ''
-        }
-    }
-
     constructor(props) {
         super(props);
-        this.state = {
-          imageURL: '',
-        };
         this.handleUploadFile = this.handleUploadFile.bind(this);
     }
     
-    handleUploadFile(ev) {
-        //ev.preventDefault();
+    handleUploadFile() {
         const data = new FormData();
         data.append('file', this.uploadInput.files[0]);
         fetch('http://localhost:3002/api/file-upload', {
@@ -32,16 +22,7 @@ class fileUploader extends Component {
                 this.setState({ imageURL: `http://localhost:3002/${body.file}` });
             });
         });
-    }
-
-    handleChange = async e => {
-        await this.setState({
-            form: {
-                ...this.state.form,
-                [e.target.name]: e.target.value
-            }
-        });
-        //console.log(this.state.form);
+        window.location.href = "./menu";
     }
 
     render() {
