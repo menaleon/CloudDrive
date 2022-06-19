@@ -17,19 +17,19 @@
             "password":"827ccb0eea8a706c4c34a16891f84e7b"
         },
         {
-            "id":2,
-            "apellido_paterno":"Cruz",
-            "apellido_materno":"Vargas",
-            "nombre":"Eduardo",
-            "username":"joseibon",
+            "id":3,
+            "apellido_paterno":"León",
+            "apellido_materno":"Huertas",
+            "nombre":"Jimena",
+            "username":"menaleon",
             "password":"827ccb0eea8a706c4c34a16891f84e7b"
         },
         {
-            "id":2,
-            "apellido_paterno":"Cruz",
-            "apellido_materno":"Vargas",
-            "nombre":"Eduardo",
-            "username":"joseibon",
+            "id":4,
+            "apellido_paterno":"Chacón",
+            "apellido_materno":"Alfaro",
+            "nombre":"Gabriel",
+            "username":"gabriel",
             "password":"827ccb0eea8a706c4c34a16891f84e7b"
         }
     ]
