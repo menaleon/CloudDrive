@@ -103,6 +103,13 @@ router.get("/file-list", (req, res, next) => {
     });
 });
 
-
+//router.delete("/file-delete", (req, res, next) => {
+//    File.deleteOne().then(data => {
+//        res.status(200).json({
+//            message: "File deleted successfully!",
+//            files: data
+//        });
+//    });
+//});
 
 module.exports = router;
