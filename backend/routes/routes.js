@@ -61,6 +61,17 @@ router.get("/user-list", (req, res, next) => {
     });
 });
 
+router.delete("/users/:id", (req, res, next) => {
+    id = req.params.id;
+    User.findByIdAndDelete(id).then(data => {
+        res.status(200).json({
+            message: "User deleted successfully!",
+            user: data,
+        });
+   });
+});
+
+
 //router.post('/file-upload', upload.single('path'), (req, res, next) => {
 router.post('/file-upload', (req, res, next) => {
     const newpath = __dirname + "/../public/";
@@ -103,13 +114,15 @@ router.get("/file-list", (req, res, next) => {
     });
 });
 
-//router.delete("/file-delete", (req, res, next) => {
-//    File.deleteOne().then(data => {
-//        res.status(200).json({
-//            message: "File deleted successfully!",
-//            files: data
-//        });
-//    });
-//});
+router.delete("/files/:id", (req, res, next) => {
+    id = req.params.id;
+    File.findByIdAndDelete(id).then(data => {
+        res.status(200).json({
+            message: "File deleted successfully!",
+            file: data,
+        });
+   });
+});
+
 
 module.exports = router;
